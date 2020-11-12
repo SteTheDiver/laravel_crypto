@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::get("/login", 'IndexController@index');
+Route::get("/register", 'IndexController@index');
 
-
-Route::get('/', 'indexController@index');
+Route::get('/{path?}', 'indexController@index')->name('index')
+    ->where('path', '.*');
